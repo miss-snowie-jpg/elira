@@ -1,0 +1,553 @@
+/* =========================================
+   SIDEBAR LAYOUT
+========================================= */
+
+.sidebar-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+  position: relative;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 18px 10px;
+
+  background: #080808;
+  border-right: 1px solid rgba(212, 175, 55, 0.15);
+
+  overflow: hidden;
+
+  transition:
+    flex-basis 0.3s ease,
+    width 0.3s ease;
+}
+
+/* =========================================
+   OPEN SIDEBAR
+========================================= */
+
+.sidebar.open {
+  flex-basis: 280px;
+  width: 280px;
+}
+
+/* =========================================
+   COLLAPSE BUTTON
+========================================= */
+
+.size-btn {
+  width: 100%;
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.size-btn:hover {
+  background: rgba(212, 175, 55, 0.08);
+  color: #d4af37;
+}
+
+/* =========================================
+   ARROW
+========================================= */
+
+.icon-arrow {
+  flex-shrink: 0;
+
+  width: 22px !important;
+  height: 22px !important;
+
+  transition: transform 0.3s ease;
+}
+
+.sidebar-is-open .icon-arrow {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+.btn-text {
+  opacity: 0;
+  width: 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  transition:
+    opacity 0.2s ease,
+    width 0.2s ease;
+}
+
+.sidebar.open .btn-text {
+  opacity: 1;
+  width: auto;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-top: 24px;
+}
+
+/* =========================================
+   NAV ITEMS
+========================================= */
+
+.sidebar-item {
+  width: 100%;
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(212, 175, 55, 0.08);
+  color: #d4af37;
+}
+
+.sidebar-item.active {
+  background: rgba(212, 175, 55, 0.12);
+  color: #d4af37;
+
+  box-shadow:
+    inset 2px 0 0 #d4af37;
+}
+
+/* =========================================
+   NAV ICON
+========================================= */
+
+.sidebar-item-icon {
+  width: 24px;
+  min-width: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+  line-height: 1;
+
+  color: inherit;
+}
+
+/* =========================================
+   CONVERSATION LIBRARY
+========================================= */
+
+.conversation-library {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 22px;
+
+  min-height: 0;
+  flex: 1;
+}
+
+/*
+   Don't show the library while collapsed.
+*/
+
+.sidebar-is-collapsed .conversation-library {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================================
+   LIBRARY HEADER
+========================================= */
+
+.library-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 34px;
+  padding: 0 4px;
+}
+
+.library-title {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+}
+
+.new-chat-btn {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(212, 175, 55, 0.08);
+  color: #d4af37;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.new-chat-btn:hover {
+  background: rgba(212, 175, 55, 0.16);
+  transform: scale(1.05);
+}
+
+.new-chat-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.conversation-search {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 8px;
+  padding: 0 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.conversation-search svg {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.conversation-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.conversation-search input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================================
+   CONVERSATION LIST
+========================================= */
+
+.conversation-list {
+  min-height: 0;
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  margin-top: 10px;
+  padding-right: 3px;
+}
+
+/* Scrollbar */
+
+.conversation-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.conversation-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conversation-list::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.18);
+  border-radius: 10px;
+}
+
+/* =========================================
+   GROUP
+========================================= */
+
+.conversation-group {
+  margin-bottom: 18px;
+}
+
+.conversation-group-title {
+  padding: 0 8px;
+  margin-bottom: 5px;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================
+   CONVERSATION ITEM
+========================================= */
+
+.conversation-item {
+  width: 100%;
+
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 7px 7px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.conversation-item:hover {
+  background: rgba(212, 175, 55, 0.07);
+  color: #fff;
+}
+
+.conversation-active {
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+}
+
+/* =========================================
+   CONVERSATION ICON
+========================================= */
+
+.conversation-icon {
+  width: 27px;
+  min-width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.conversation-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.conversation-active .conversation-icon {
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+/* =========================================
+   CONVERSATION CONTENT
+========================================= */
+
+.conversation-content {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.conversation-title {
+  overflow: hidden;
+
+  color: inherit;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversation-preview {
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 10px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================
+   MORE BUTTON
+========================================= */
+
+.conversation-more {
+  width: 16px !important;
+  height: 16px !important;
+
+  flex-shrink: 0;
+
+  opacity: 0;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  transition: opacity 0.2s ease;
+}
+
+.conversation-item:hover .conversation-more {
+  opacity: 1;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.conversation-empty {
+  padding: 18px 8px;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 11px;
+
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+  flex: 1 1 auto;
+
+  min-width: 0;
+  min-height: 100vh;
+
+  position: relative;
+
+  box-sizing: border-box;
+}
+
+/*
+   IMPORTANT:
+   Don't add transform / overflow / contain /
+   filter to .page or .sidebar-layout.
+*/
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex-basis: 64px;
+    width: 64px;
+  }
+
+  .sidebar.open {
+    flex-basis: 240px;
+    width: 240px;
+  }
+}

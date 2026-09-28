@@ -1,0 +1,201 @@
+.canvas-bg {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: linear-gradient(to bottom right, #001, #000006);
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background-color: #fff1;
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  border: none;
+  color: var(--foreground);
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: 0.25s;
+}
+
+.back-btn:hover {
+  background-color: var(--primary-darker);
+  scale: 1.2;
+  transform: translateY(-1px);
+}
+
+.login-header {
+  text-align: center;
+}
+
+.brand-title::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "Elira";
+  right: 0;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.brand-title {
+  color: var(--primary);
+  position: relative;
+}
+
+.header-sub {
+  color: var(--primary-muted);
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+
+/* Auth Layout Container */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  backdrop-filter: blur(10px);
+  padding: 0 10px;
+  border-radius: 10px;
+  border: #fff3 1px solid; /* Added standard fallback border style */
+  margin: 10px 0;
+}
+
+/* Input Wrappers & Direct Inputs */
+.form-input {
+  flex: 1;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.login-form input::placeholder {
+  color: #6b7280;
+}
+
+.form-group:has(input:focus) {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+/* Submit Action Button */
+.login-form button.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  background: #f59e0b;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.login-form button.submit-btn:hover {
+  background: #fbbf24;
+  transform: translateY(-1px);
+}
+
+/* Links & Footer */
+.login-footer {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.login-footer a {
+  color: #f59e0b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.login-footer a:hover {
+  color: #fbbf24;
+  text-decoration: underline;
+}
+
+.muted-title {
+  color: var(--primary-muted);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.external-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.external-menu button {
+  color: white;
+  background-color: transparent;
+  border: #fff3 1px solid;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: .15s;
+  cursor: pointer;
+}
+
+.external-menu button:hover {
+  border: white 1px solid;
+  background-color: white;
+  color: black;
+}
+
+.submit-btn {
+  background-color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: .15s;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-darker);
+  transform: translateY(-5px) scale(1.03);
+}

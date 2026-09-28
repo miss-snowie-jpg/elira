@@ -1,0 +1,576 @@
+.chat-page {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #050505;
+  color: #fff;
+
+  box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+.chat-header {
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 32px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  flex-shrink: 0;
+}
+
+.chat-header h1 {
+  margin: 0;
+
+  font-size: 20px;
+  letter-spacing: 3px;
+
+  color: #d4af37;
+}
+
+.chat-header span {
+  font-size: 12px;
+
+  color: rgba(255,255,255,0.45);
+}
+
+
+/* MESSAGES */
+
+.chat-messages {
+  flex: 1;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 40px 24px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;  
+  scrollbar-width: none;
+}
+
+.chat-messages::--webkit-scrollbar {
+  display: none;
+}
+
+
+/* WELCOME */
+
+.chat-welcome {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.chat-logo {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 50%;
+
+  color: #d4af37;
+
+  font-size: 26px;
+}
+
+.chat-welcome h2 {
+  margin: 0 0 10px;
+
+  font-size: 28px;
+}
+
+.chat-welcome p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,0.45);
+
+  line-height: 1.6;
+}
+
+
+/* MESSAGES */
+
+.chat-message {
+  display: flex;
+
+  margin-bottom: 24px;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+}
+
+.chat-message.assistant {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 75%;
+
+  padding: 14px 18px;
+
+  border-radius: 16px;
+
+  line-height: 1.6;
+
+  white-space: pre-wrap;
+}
+
+.chat-message.user .message-content {
+  background: #151515;
+
+  border: 1px solid rgba(212,175,55,0.15);
+}
+
+.chat-message.assistant .message-content {
+  background: transparent;
+
+  color: rgba(255,255,255,0.85);
+}
+
+
+/* COMPOSER */
+
+.chat-composer {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 16px 24px 24px;
+
+  display: flex;
+  gap: 10px;
+
+  box-sizing: border-box;
+}
+
+.chat-composer textarea {
+  width: 100%;
+
+  min-height: 52px;
+  max-height: 160px;
+
+  padding: 15px 18px;
+
+  resize: none;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+
+  outline: none;
+
+  background: #101010;
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  box-sizing: border-box;
+  max-height: 100px;
+  scrollbar-width: none;
+}
+
+.chat-composer textarea::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.chat-composer textarea::--webkit-scrollbar {
+  display: none;
+}
+
+.chat-composer textarea:focus {
+  border-color: rgba(212,175,55,0.45);
+}
+
+.chat-composer button {
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: #d4af37;
+
+  color: #050505;
+
+  font-size: 22px;
+
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.chat-composer button:disabled {
+  background-color: var(--primary-muted);
+  opacity: .3;
+
+  cursor: not-allowed;
+}
+
+
+/* TYPING */
+
+.typing {
+  opacity: 0.5;
+}
+
+.email-preview {
+  width: min(600px, 90%);
+  margin: 16px auto;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111;
+}
+
+.email-preview-header {
+  margin-bottom: 18px;
+}
+
+.email-preview-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.email-preview-header h3 {
+  margin: 5px 0 0;
+}
+
+.email-preview-field {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.email-preview-field-label {
+  width: 70px;
+  opacity: 0.6;
+}
+
+.email-preview-value {
+  word-break: break-word;
+}
+
+.email-preview-body {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  padding: 20px 0;
+  min-height: 120px;
+}
+
+.email-preview-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.email-preview-actions button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.email-cancel-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.email-send-button {
+  border: none;
+  font-weight: 600;
+}
+
+button.secondary {
+  background-color: transparent;
+  border: #fff3 1px solid;
+  color: white;
+  font-weight: bold;
+  transition: .2s;
+}
+
+button.secondary:hover {
+  background-color: #fff2;
+}
+/* ============================================================
+   CHAT ATTACHMENT / ADD FILES SYSTEM
+   ============================================================ */
+
+.add-files {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+/* + BUTTON */
+
+.add-files button.secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  padding: 0;
+
+  border: 1px solid #303030;
+  border-radius: 10px;
+
+  background: #111;
+  color: #c9a227;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-files button.secondary:hover {
+  border-color: #c9a227;
+  background: #151515;
+}
+
+/* PLUS */
+
+.add-files button.secondary span {
+  display: inline-block;
+
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.add-files button.secondary:hover span {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   ATTACHMENT MENU
+   ============================================================ */
+
+.add-files .attach-menu {
+  position: absolute;
+
+  left: 0;
+  bottom: calc(100% + 10px);
+
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  width: 210px;
+
+  padding: 7px;
+
+  border: 1px solid #292929;
+  border-radius: 14px;
+
+  background: #0b0b0b;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(201, 162, 39, 0.04);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(8px) scale(0.97);
+  transform-origin: bottom left;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* OPEN STATE */
+
+.add-files .attach-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   MENU BUTTONS
+   ============================================================ */
+
+.add-files .attach-menu button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  background: transparent;
+  color: #d5d5d5;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-files .attach-menu button:hover {
+  border-color: #292929;
+  background: #151515;
+  color: #c9a227;
+
+  transform: translateX(2px);
+}
+
+/* ============================================================
+   OPTIONAL MENU ICON EFFECT
+   ============================================================ */
+
+.add-files .attach-menu button::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  margin-right: 9px;
+
+  color: #c9a227;
+  font-size: 14px;
+}
+
+/* Individual icons */
+
+.add-files .attach-menu button:nth-child(1)::before {
+  content: "◉";
+}
+
+.add-files .attach-menu button:nth-child(2)::before {
+  content: "▣";
+}
+
+.add-files .attach-menu button:nth-child(3)::before {
+  content: "☷";
+}
+
+.attached-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  border: 1px solid #292929;
+  border-radius: 12px;
+  background: #0b0b0b;
+  width: 50%;
+}
+
+.attached-file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.attached-file-icon {
+  flex-shrink: 0;
+}
+
+.attached-file-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.attached-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attached-file-size {
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+button.attached-file-remove {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.input {
+  flex: 1;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .add-files .attach-menu {
+    left: 0;
+    width: 190px;
+  }
+
+  .add-files .attach-menu button {
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+}
