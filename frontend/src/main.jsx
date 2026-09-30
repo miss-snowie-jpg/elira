@@ -9,7 +9,7 @@ import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <GoogleOAuthProvider clientId="339823574784-ohhtqj0dj5v1t6honk2l1tc87kjbmmou.apps.googleusercontent.com">
-    <BrowserRouter>
+    <BrowserRouter basename="/elira">
       <React.StrictMode>
         <App />
         <ToastContainer />
@@ -17,3 +17,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </GoogleOAuthProvider>,
 );
+
